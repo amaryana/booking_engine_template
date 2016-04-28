@@ -49,9 +49,6 @@
                     <li>
                         <a href="#">Things To Do</a>
                     </li>
-                    <li>
-                        <a href="#">Trip Planner</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -59,7 +56,6 @@
         <!-- /.container -->
     </nav>
 
-    {{items}}
     <!-- Page Content -->
     <div class="container">
 
@@ -68,24 +64,25 @@
             <div class="col-md-3">
                 <p class="lead">Maui</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Resorts</a>
-                    <a href="#" class="list-group-item">Condos</a>
-                    <a href="#" class="list-group-item">Camping</a>
+                  {{cart}}
+                    <a href="#" class="list-group-item">Nature</a>
+                    <a href="#" class="list-group-item">Culture</a>
+                    <a href="#" class="list-group-item">Leisure</a>
                 </div>
             </div>
 
             <div class="col-md-9">
 
-                <div class="row">
+                <div ng-click="onClick(trip)"  class="trip" ng-repeat = "trip in trips">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-class="{highlight: selected === trip}">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img ng-src="{{trip.image}}" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">{{}}</h4>
-                                <h4><a href="#">{{}}</a>
+                                <h4 class="pull-right">{{trip.price}}</h4>
+                                <h4><a href="#">{{trip.title}}</a>
                                 </h4>
-                                <p>Experience the annual humpback migration every Winter.</p>
+                                <p>{{trip.description}}</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -100,58 +97,10 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$79.99</h4>
-                                <h4><a href="#">Haleakala Stargazing</a>
-                                </h4>
-                                <p>See the sun, moon, and stars without any light pollution or cloud interference.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="#">Aloha Massage</a>
-                                </h4>
-                                <p>Relax and recalibrate after a long day of swimming and hiking. </p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
 
     </div>
+  </div>
     <!-- /.container -->
 
     <div class="container">
